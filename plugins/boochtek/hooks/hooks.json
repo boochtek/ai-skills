@@ -1,0 +1,17 @@
+{
+    "description": "Enforce Bash tool usage rules",
+    "hooks": {
+        "PreToolUse": [
+            {
+                "matcher": "Bash",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/no-stderr-redirect.sh",
+                        "timeout": 5
+                    }
+                ]
+            }
+        ]
+    }
+}
