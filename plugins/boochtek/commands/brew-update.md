@@ -8,7 +8,7 @@ Update Homebrew and all installed packages. Provide a summary of what was update
 
 1. **Check for concurrent brew processes.** Before anything else, check for stale lock files:
    ```
-   find ~/Library/Caches/Homebrew/downloads/ -name "*.incomplete" 2>/dev/null
+   find ~/Library/Caches/Homebrew/downloads/ -name "*.incomplete"
    ```
    - If `.incomplete` files exist, check whether a `brew upgrade` process is actually running (`pgrep -f 'brew upgrade'`).
    - If a process IS running: **abort** and tell the user another upgrade is in progress.
@@ -35,6 +35,6 @@ Update Homebrew and all installed packages. Provide a summary of what was update
    - For any OTHER package that had a MAJOR version bump (eg, 2.x -> 3.x), also provide a TLDR.
       - If the version number starts with 0, provide a TLDR if the second number increases.
    - Skip TLDRs for packages with only patch-level bumps (eg, 2.3.4 -> 2.3.5) or if there are no notable features. Omit them from the TLDR — just list them in the "all other upgrades" table.
+   - No need to show freed disk space.
 
 9. Report any errors or warnings from the upgrade process.
-
