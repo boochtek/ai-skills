@@ -1,0 +1,9 @@
+{
+    "name": "boochtek",
+    "description": "BoochTek commands and skills for development workflows",
+    "version": "0.1.0",
+    "author": {
+        "name": "Craig Buchek, BoochTek"
+    },
+    "repository": "https://github.com/boochtek/ai-skills"
+}

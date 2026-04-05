@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "boochtek",
+  "description": "BoochTek AI skills and commands for development workflows",
+  "owner": {
+    "name": "Craig Buchek / BoochTek"
+  },
+  "plugins": [
+    {
+      "name": "boochtek",
+      "description": "BoochTek commands and skills for development workflows",
+      "source": "./plugins/boochtek",
+      "category": "development",
+      "homepage": "https://github.com/boochtek/ai-skills"
+    }
+  ]
+}
