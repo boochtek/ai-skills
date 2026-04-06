@@ -72,6 +72,26 @@ cd claude/plugins/marketplaces/boochtek && git status
 git -C claude/plugins/marketplaces/boochtek status
 ```
 
+### Use `jq` and `yq` for data processing
+
+Use `jq` for JSON and `yq` for YAML instead of writing one-off Python scripts.
+
+```bash
+# WRONG — unnecessary Python script for simple JSON extraction
+python3 -c "import json; print(json.load(open('config.json'))['version'])"
+
+# RIGHT — jq is simpler and more composable
+jq '.version' config.json
+
+# WRONG — Python for YAML manipulation
+python3 -c "import yaml; d=yaml.safe_load(open('config.yaml')); print(d['name'])"
+
+# RIGHT — yq handles YAML natively
+yq '.name' config.yaml
+```
+
+Only fall back to Python when the transformation is too complex for `jq`/`yq` (e.g., multi-file joins with complex logic, or when a Python script already exists for the task).
+
 ### Permission-aware command construction
 
 Bash permissions use exact-match patterns. When constructing commands:
