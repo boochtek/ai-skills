@@ -60,6 +60,18 @@ Do not use the Bash tool when a dedicated tool exists:
 
 **Exception:** Shell equivalents are fine when they are part of a pipeline (e.g., `command | grep pattern | head -5`).
 
+### Use `git -C` instead of `cd` for subdirectory git operations
+
+When running git commands in a subdirectory (submodules, worktrees, etc.), use `git -C <path>` instead of `cd <path> && git ...`. Changing directories with `cd` persists across Bash tool calls and causes confusion in subsequent commands.
+
+```bash
+# WRONG — changes working directory for all future commands
+cd claude/plugins/marketplaces/boochtek && git status
+
+# RIGHT — working directory stays unchanged
+git -C claude/plugins/marketplaces/boochtek status
+```
+
 ### Permission-aware command construction
 
 Bash permissions use exact-match patterns. When constructing commands:
