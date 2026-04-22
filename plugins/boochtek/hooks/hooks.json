@@ -7,7 +7,7 @@
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/no-stderr-redirect.sh",
+                        "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/bash-guard.sh",
                         "timeout": 5
                     }
                 ]
