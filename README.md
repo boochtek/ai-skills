@@ -54,6 +54,12 @@ Handles quality review, file migration, symlinks, and commits in both repos.
 Rules for using the Bash tool in Claude Code.
 Covers stderr redirections, dedicated tools, permissions, and common pitfalls.
 
+### `lang-elixir`
+
+Elixir language conventions, tooling, and known issues.
+Covers ExUnit tagging/skipping, type spec syntax for maps,
+OTP immutability, and known library bugs (e.g., ExLLM).
+
 ### `learn`
 
 Cross-platform memory system for persisting learnings.
