@@ -1,5 +1,5 @@
 {
-    "description": "Enforce Bash tool usage rules",
+    "description": "Enforce Bash tool rules and documentation checklist",
     "hooks": {
         "PreToolUse": [
             {
@@ -8,7 +8,19 @@
                     {
                         "type": "command",
                         "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/bash-guard.sh",
-                        "timeout": 5
+                        "timeout": 10
+                    }
+                ]
+            }
+        ],
+        "Stop": [
+            {
+                "hooks": [
+                    {
+                        "type": "prompt",
+                        "prompt": "Review the changes made in this session. Check for: (1) Documentation (READMEs, code comments, AGENTS.md, files in doc/ or docs/ directories, etc.) that describes changed behavior but was NOT updated. (2) New functionality, APIs, or behaviors that lack documentation entirely and should have it. Trivial changes (typos, formatting, minor fixes) and changes that only affect documentation files do NOT need additional documentation. If documentation gaps exist, list the specific files and what needs to be documented or updated. If documentation is already adequate, say so.",
+                        "model": "claude-haiku-4-5-20251001",
+                        "statusMessage": "Checking documentation..."
                     }
                 ]
             }
