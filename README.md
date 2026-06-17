@@ -31,11 +31,6 @@ Then restart Claude Code.
 - **`/tdd`** — Start a TDD workflow: write tests first, then implement
 - **`/what-next`** — Suggest what to work on next based on project status and TODOs
 
-
-### `/what-next`
-
-Suggest what to work on next based on project status and TODOs.
-
 ## Skills
 
 - **`bash-tool`** — Rules for using the Bash tool in Claude Code
