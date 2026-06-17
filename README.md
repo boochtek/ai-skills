@@ -16,78 +16,49 @@ Then restart Claude Code.
 
 ## Commands
 
-### `/brew-update`
-
-Updates Homebrew and all installed packages.
-Provides a summary of what changed, with TLDRs for notable upgrades.
-
-### `/learn`
-
-Persist learnings and insights across sessions.
-Stores memories in XDG-compliant directories
-(`${XDG_DATA_HOME}/ai/memory/` for global, `.ai/memory/` for project).
-Lazily bootstraps storage on first use, including Claude Code symlinks.
-
-### `/remember`
-
-Alias for `/learn` — quick way to persist a single insight.
-
-### `/retro`
-
-Session retrospective — analyzes what worked, what didn't,
-and proposes improvements to skills, commands, and workflow.
-
-### `/restore-website`
-
-Restore a lost website from the Internet Archive's Wayback Machine
-and convert it to a Hugo static site.
-
-### `/publish-to-plugin`
-
-Migrate a local command or skill to the boochtek plugin for publishing.
-Handles quality review, file migration, symlinks, and commits in both repos.
+- **`/brew-update`** — Update Homebrew and all installed packages, with a summary of changes
+- **`/commit-msg`** — Suggest a concise commit message for staged changes
+- **`/learn`** — Persist insights and learnings across sessions
+- **`/new-project`** — Collaboratively create a new project with scaffolding, AI config, docs, and GitHub repo
+- **`/pre-commit`** — Pre-commit checks: verify tests, lint, review, and suggest a commit message
+- **`/refactor`** — Refactor code: improve structure while preserving behavior
+- **`/refactor-shrink`** — Reduce code length when linting reports files, classes, or methods are too long
+- **`/remember`** — Remember something for future sessions (alias for `/learn`)
+- **`/restore-website`** — Restore a lost website from the Wayback Machine and convert it to a Hugo static site
+- **`/retro`** — Retrospective on a session: what worked, what didn't, and improvements
+- **`/review`** — Run the 3-review SDLC code review process on recent changes
+- **`/simplify`** — Review code for simplification opportunities
+- **`/tdd`** — Start a TDD workflow: write tests first, then implement
+- **`/what-next`** — Suggest what to work on next based on project status and TODOs
 
 ## Skills
 
-### `bash-tool`
-
-Rules for using the Bash tool in Claude Code.
-Covers stderr redirections, dedicated tools, permissions, and common pitfalls.
-
-### `lang-elixir`
-
-Elixir language conventions, tooling, and known issues.
-Covers ExUnit tagging/skipping, type spec syntax for maps,
-OTP immutability, and known library bugs (e.g., ExLLM).
-
-### `learn`
-
-Cross-platform memory system for persisting learnings.
-Routes insights to the right destination: memory files, skill updates,
-or AGENTS.md. See the `/learn` command above.
-
-### `restore-website`
-
-Detailed workflow for the `/restore-website` command,
-including inventory, download, and Hugo conversion phases.
+- **`bash-tool`** — Rules for using the Bash tool in Claude Code
+- **`code-quality`** — Naming, structure, and maintainability guidelines
+- **`coding`** — Code implementation and feature development (the GREEN phase of TDD)
+- **`commits`** — Git commit practices: atomic commits and AI attribution trailers
+- **`creating-skills`** — Guidance for creating or editing skills (TDD-style, with a review pass)
+- **`design`** — Software design principles and patterns (SOLID, coupling, cohesion)
+- **`documentation`** — Keeping documentation up to date alongside code
+- **`html`** — HTML and CSS guidelines (Markdown-first output)
+- **`lang-elixir`** — Elixir language conventions, tooling, and known issues
+- **`lang-javascript`** — JavaScript language conventions, tooling, and known issues
+- **`lang-ruby`** — Ruby language conventions, tooling, and known issues
+- **`learn`** — Cross-platform memory system for persisting learnings
+- **`markdown`** — Writing and editing Markdown files
+- **`refactor`** — Code refactoring methodology
+- **`restore-website`** — Workflow for restoring a site from the Wayback Machine into Hugo
+- **`sdlc`** — Software development lifecycle and code review process
+- **`security`** — Secure coding and code review (OWASP Top 10)
+- **`tdd`** — Test-Driven Development methodology (the RED phase)
+- **`testing`** — Testing philosophy and practices
 
 ## Cross-Agent Compatibility
 
-These skills and commands are designed for Claude Code
-but can also be used by other AI agents.
-Run the sync script to create symlinks in your agent's config directory:
-
-```bash
-./sync-to-global.sh
-```
-
-Or symlink individual files manually:
-
-```bash
-BOOCHTEK_PLUGIN_PATH='~/.config/claude/plugins/marketplaces/boochtek/plugins/boochtek'
-ln -s "$BOOCHTEK_PLUGIN_PATH"/commands/learn.md ~/.config/ai/commands/learn.md
-ln -s "$BOOCHTEK_PLUGIN_PATH"/skills/learn/SKILL.md ~/.config/ai/skills/learn/SKILL.md
-```
+These commands and skills are plain Markdown with YAML frontmatter, usable by any
+AI agent that reads command/skill files. Install via the marketplace above for
+Claude Code; for other agents (OpenCode, Codex, etc.), symlink the files into that
+agent's command/skill directory.
 
 ## License
 
